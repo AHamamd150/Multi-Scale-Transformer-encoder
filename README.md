@@ -63,7 +63,8 @@ _____________________________
 <a name="chart"></a>
 ## Flow chart of model_1
 
-![Uploading model_transformer.png…]()
+<img src="/Users/hammad/work/transformer_package/model_transformer.png" width="128"/>
+
 
 
 
