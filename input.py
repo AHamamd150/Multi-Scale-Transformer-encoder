@@ -1,4 +1,4 @@
-model = 3 # Model=1: is a normal transformer model 
+model = 1 # Model=1: is a normal transformer model 
 # if model= 2: is a three-modal transformer with cross attention as described in Arxiv.xxx
 # if mode=3:  is a two-modal transformer. Each modal has a transfrmer layers with self attention heads and the output from each modal fed to cross-attention layers.
 ### Common Hyper-parameters ######
@@ -16,8 +16,8 @@ compute_ROC = True #Compute the ROC and the AUC
 ################################################
 ##    If you use model 1, please fill this part only           ########
 ################################################
-sig_file = 'data/sig_J_TP1.npz'
-bkg_file = 'data/bkg1_J_TP1.npz'
+sig_file = 'sig.npz'
+bkg_file = 'bkg.npz'
 
 num_heads = 5   ## Number of the self attenion heads
 hidden_dim= 5    ## Hidden dimension of the multi-attention heads. Usually is the same as the number of heads. Please look at the tensorflow manual for multi-heads self attention layer
@@ -28,13 +28,13 @@ n_channels = 7     # Number of the features of each particle token
 ################################################
 ##    If you use model 2, please fill this part only           ########
 ################################################
-sig_file_1 = 'data/sig_J_TP1.npz'
-sig_file_2 = 'data/sig_J_TP1.npz'
-sig_file_3 = 'data/sig_J_TP1.npz'
+sig_file_1 = 'sig_1.npz'
+sig_file_2 = 'sig_2.npz'
+sig_file_3 = 'sig_3.npz'
 
-bkg_file_1 = 'data/bkg1_J_TP1.npz'
-bkg_file_2 = 'data/bkg1_J_TP1.npz'
-bkg_file_3 = 'data/bkg1_J_TP1.npz'
+bkg_file_1 = 'bkg_1.npz'
+bkg_file_2 = 'bkg_2.npz'
+bkg_file_3 = 'bkg_3.npz'
 ######################################
 ## paremters of the first transformer#
 ######################################
@@ -69,11 +69,11 @@ num_transformers_cross= 1
 ##    If you use model 3, please fill this part only           ########
 ################################################
 
-sig_file_1 = 'data/sig_J_TP1.npz'
-sig_file_2 = 'data/sig_J_TP1.npz'
+sig_file_1 = 'sig_1.npz'
+sig_file_2 = 'sig_2.npz'
 
-bkg_file_1 = 'data/bkg1_J_TP1.npz'
-bkg_file_2 = 'data/bkg1_J_TP1.npz'
+bkg_file_1 = 'bkg_1.npz'
+bkg_file_2 = 'bkg_2.npz'
 ######################################
 ## paremters of the first transformer#
 ######################################
