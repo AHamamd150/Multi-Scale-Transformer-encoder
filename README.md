@@ -61,16 +61,19 @@ _____________________________
 
 _____________________________
 <a name="chart"></a>
-## Flow chart of model_1
-![model_transformer](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/53b99c51-074a-4f46-9147-4630401e9121)
+## Flow chart of model_1, the user controls the structure of the model from the input file 
 
 
+![model_transformer_1](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/883aa1d8-c62a-4674-82ab-15da7b13d7a8)
 
 
+## Flow chart of model_2, the user controls the structure of the model from the input file 
 
+![model_transformer_2](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/d8ac4043-e36e-4d5b-aaec-8a3c36041183)
 
+## Flow chart of model_3, the user controls the structure of the model from the input file 
 
-
+![model_transformer_3](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/96f84a93-3272-4624-9379-f7fce5fe899b)
 
 
 
