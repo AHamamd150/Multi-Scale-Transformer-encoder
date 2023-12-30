@@ -62,8 +62,12 @@ _____________________________
 _____________________________
 <a name="chart"></a>
 ## Flow chart of model_1
+![model_transformer](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/53b99c51-074a-4f46-9147-4630401e9121)
 
-<img src="/Users/hammad/work/transformer_package/model_transformer.png" width="128"/>
+
+
+
+
 
 
 
