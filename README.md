@@ -12,13 +12,11 @@ $~~~~~~~~~~~$ $~~~~~~~~~~~$ [1. Introduction ](#Introduction)
 
 $~~~~~~~~~~~$ $~~~~~~~~~~~$  [2. Requirements ](#Requirements)
 
-$~~~~~~~~~~~$ $~~~~~~~~~~~$  [3. Package structure ](#structure)
-
 $~~~~~~~~~~~$ $~~~~~~~~~~~$  [4. Get started ](#start)
 
-$~~~~~~~~~~~$ $~~~~~~~~~~~$ [5. Work flow](#flow)
+$~~~~~~~~~~~$ $~~~~~~~~~~~$  [3. Package structure ](#structure)
 
-$~~~~~~~~~~~$ $~~~~~~~~~~~$  [6. Toy examples](#toy)
+$~~~~~~~~~~~$ $~~~~~~~~~~~$  [6. Demo example](#toy)
 ________________
 <a name="Introduction"></a>
 ## Introduction
@@ -38,4 +36,8 @@ ____________________________
 * matplotlib
 
 Requirements can be easily installed by `pip3 install module` or the user can use the given `enviroment.yml` to create a conda enviroment.
+_____________________________
+<a name="start"></a>
+## Get start
+&emsp; To run the package, the user has to fill the file `input.py` for the used model. For example, if the user want to use model_1 then the corresponding lines for model_1 only has to be filled while all other inputs are igonred by the code. To run the code, type in the terminal `python3 run.py`
 
