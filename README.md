@@ -40,12 +40,16 @@ Requirements can be easily installed by `pip3 install module` or the user can us
 _____________________________
 <a name="start"></a>
 ## Get start
-&emsp; To run the package, the user has to fill the file `input.py` for the used model. For example, if the user want to use model_1 then the corresponding lines for model_1 only has to be filled while all other inputs are igonred by the code. To run the code, type in the terminal `python3 run.py`.
+&emsp; To run the package, the user has to fill the file `input.py` for the used model. For example, if the user want to use model_1 then the corresponding lines for model_1 only has to be filled while all other inputs are igonred by the code. To run the code, type in the terminal `python3 run.py`. 
+
+A demo version is also provided in which the user can run it to test the package. To run the demo version, type in the terminal `python3 run_demo.py`
 
 _____________________________
 <a name="structure"></a>
 ## Structure of the code
-&emsp; To run the package, the user has to fill the file `input.py` for the used model. For example, if the user want to use model_1 then the corresponding lines for model_1 only has to be filled while all other inputs are igonred by the code. To run the code, type in the terminal `python3 run.py`.
-
+&emsp; The package consists of the following files:
+* `input.py` Input file which has to be filled by the user to control the network structure
+* `run.py` The run file which takes as input the files in the source directory and the `input.py`
+* `run_demo.py` A demo version of the code in wich the user can run it for test. 
 
 
