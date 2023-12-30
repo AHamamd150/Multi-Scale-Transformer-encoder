@@ -32,7 +32,6 @@ def test_acc(model,x, y):
     test_accuracy.update_state(y, val_logit)
     return print(f'Test Accuracy:  {test_accuracy.result()*100 :.3f}%')    
 
-
 def training_loop(model,x_train,y_train,epochs=20,batch_size=512):
     
     ## Lets create the batches first
@@ -58,3 +57,104 @@ def training_loop(model,x_train,y_train,epochs=20,batch_size=512):
         tf.print('|   Epoch {:2d}:  Loss (Avg): {:2.5f}  Accuracy (Avg): {:2.5f}'.format(epoch+1,epoch_loss_avg.result(),epoch_acc_avg.result()))  
         # Reset training metrics at the end of each epoch
         train_accuracy.reset_states()
+        
+        
+ ### Training loop function per training batch for model 2 #####
+
+@tf.function
+def train_step_2(x, y,model):
+    with tf.GradientTape() as tape:
+        logit = model(x, training=True)
+        loss_value = loss_func(y, logit)
+    grads = tape.gradient(loss_value, model.trainable_weights)
+    optimizer.apply_gradients(zip(grads, model.trainable_weights))
+    train_accuracy.update_state(y, logit)
+    return loss_value,train_accuracy.result()
+
+
+@tf.function
+def test_step_2(x0,x1,x2, y,model):
+    val_logit = model([x0,x1,x2], training=False)
+    test_accuracy.update_state(y, val_logit)
+
+
+def test_acc_2(model,x0,x1,x2, y):
+    val_logit = model([x0,x1,x2], training=False)
+    test_accuracy.update_state(y, val_logit)
+    return print(f'Test Accuracy:  {test_accuracy.result()*100 :.3f}%')    
+
+
+def training_loop_2(model,x_train0,x_train1,x_train2,y_train,epochs=20,batch_size=512):
+    ## Lets create the batches first
+    train_ds = tf.data.Dataset.from_tensor_slices(
+    (x_train0,x_train1,x_train2, y_train)).shuffle(x_train1.shape[0]).batch(batch_size) 
+    epoch_loss_avg = tf.keras.metrics.Mean()
+    epoch_acc_avg = tf.keras.metrics.Mean()
+    for epoch in range(epochs):
+    # Iterate over the batches of the dataset.
+        loss,acc = [],[]
+        for step, (x_batch_train_0,x_batch_train_1,x_batch_train_2, y_batch_train) in enumerate(train_ds):
+            
+            loss_value,acc_value = train_step_2([x_batch_train_0,x_batch_train_1,x_batch_train_2], y_batch_train,model)
+            loss.append(loss_value)
+            acc.append(acc_value)
+            epoch_loss_avg.update_state(loss) 
+            epoch_acc_avg.update_state(acc)  
+            if step % 1 == 0:
+                sys.stdout.write('\r'+'step %s :  loss = %2.5f  accuracy = %2.5f'%((step + 1),float(loss_value),float(acc_value)))
+           
+        # Display metrics at the end of each epoch.
+        tf.print('|   Epoch {:2d}:  Loss (Avg): {:2.5f}  Accuracy (Avg): {:2.5f}'.format(epoch+1,epoch_loss_avg.result(),epoch_acc_avg.result()))  
+        # Reset training metrics at the end of each epoch
+        train_accuracy.reset_states()
+        
+        
+        
+### Training loop function per training batch for model 3 #####
+
+@tf.function
+def train_step_3(x, y,model):
+    with tf.GradientTape() as tape:
+        logit = model(x, training=True)
+        loss_value = loss_func(y, logit)
+    grads = tape.gradient(loss_value, model.trainable_weights)
+    optimizer.apply_gradients(zip(grads, model.trainable_weights))
+    train_accuracy.update_state(y, logit)
+    return loss_value,train_accuracy.result()
+
+
+@tf.function
+def test_step_3(x1,x2, y,model):
+    val_logit = model([x1,x2], training=False)
+    test_accuracy.update_state(y, val_logit)
+
+
+def test_acc_3(model,x1,x2, y):
+    val_logit = model([x1,x2], training=False)
+    test_accuracy.update_state(y, val_logit)
+    return print(f'Test Accuracy:  {test_accuracy.result()*100 :.3f}%')    
+
+
+def training_loop_3(model,x_train1,x_train2,y_train,epochs=20,batch_size=512):
+    ## Lets create the batches first
+    train_ds = tf.data.Dataset.from_tensor_slices(
+    (x_train1,x_train2, y_train)).shuffle(x_train1.shape[0]).batch(batch_size) 
+    epoch_loss_avg = tf.keras.metrics.Mean()
+    epoch_acc_avg = tf.keras.metrics.Mean()
+    for epoch in range(epochs):
+    # Iterate over the batches of the dataset.
+        loss,acc = [],[]
+        for step, (x_batch_train_1,x_batch_train_2, y_batch_train) in enumerate(train_ds):
+            
+            loss_value,acc_value = train_step_3([x_batch_train_1,x_batch_train_2], y_batch_train,model)
+            loss.append(loss_value)
+            acc.append(acc_value)
+            epoch_loss_avg.update_state(loss) 
+            epoch_acc_avg.update_state(acc)  
+            if step % 1 == 0:
+                sys.stdout.write('\r'+'step %s :  loss = %2.5f  accuracy = %2.5f'%((step + 1),float(loss_value),float(acc_value)))
+           
+        # Display metrics at the end of each epoch.
+        tf.print('|   Epoch {:2d}:  Loss (Avg): {:2.5f}  Accuracy (Avg): {:2.5f}'.format(epoch+1,epoch_loss_avg.result(),epoch_acc_avg.result()))  
+        # Reset training metrics at the end of each epoch
+        train_accuracy.reset_states()        
