@@ -1,6 +1,6 @@
 # Multi-Scale Cross-Attention Transformer Encoder for Event Calssification
 
- &emsp; Transformer encoder model that incorporate different scale information via multi-modal network with self and cross-attention layers. The packge based on [arXiv:2207.09959 [hep-ph]](https://arxiv.org/abs/2207.09959). The current version of the package is very geeneric and span the three configurations  as the following
+ &emsp; Transformer encoder model that incorporate different scale information via multi-modal network with self and cross-attention layers. The packge based on [arXiv:2207.09959 [hep-ph]](https://arxiv.org/abs/2207.09959). The current version of the package is very geeneric and span the three configurations  as the following:
 
  * model_1: Transformer model with single input and self-attention heads.
  * model_2: Transformer model with three inputs, each input followed by transformer layers with self-attention heads and the output is fed to transformer layers with cross-attneion heads.
@@ -28,4 +28,14 @@ help to separate different physics processes originating these. This information
 To assess our results, we analyze the learned information by the transformer layers through the examination of the attention maps of the self- and cross-attention layers. 
 Attention maps provide information about the (most) important particles the model focuses on when classifying signal and background events. 
 However, they cannot highlight the region in the feature (e.g., phase) space crucial for model classification. For this purpose, we utilize Gradient-weighted Class Activation Mapping (Grad-CAM) to highlight the geometric region in the $\eta-\phi$ (detector) plane where the model focuses on classifying events.
- 
+____________________________
+<a name="Requirements"></a>
+## Requirements
+&emsp; To run the package you need python3 with the following modules:
+* Numpy
+* TensorFlow
+* sklearn
+* matplotlib
+
+Requirements can be easily installed by `pip3 install module` or the user can use the given `enviroment.yml` to create a conda enviroment.
+
