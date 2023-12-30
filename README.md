@@ -59,4 +59,8 @@ _____________________________
 * `source/Analysis.py` Example of Delphes analysis that the user can consider.
 * `source/prepare_files.py` Source code to prepae the input files to the network.
 
+_____________________________
+<a name="chart"></a>
+## Flow chart of model_1
 
+![Uploading model_transformer.png…]()
