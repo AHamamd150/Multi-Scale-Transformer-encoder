@@ -1,0 +1,14 @@
+name: tensorflow
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - jupyter
+  - tqdm
+  - tensorflow
+  - tensorboard
+  - matplotlib
+  - seaborn
