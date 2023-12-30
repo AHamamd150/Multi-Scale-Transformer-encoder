@@ -16,7 +16,7 @@ $~~~~~~~~~~~$ $~~~~~~~~~~~$  [4. Get started ](#start)
 
 $~~~~~~~~~~~$ $~~~~~~~~~~~$  [3. Package structure ](#structure)
 
-$~~~~~~~~~~~$ $~~~~~~~~~~~$  [6. Demo example](#toy)
+$~~~~~~~~~~~$ $~~~~~~~~~~~$  [6. Flow Chart of the networks](#chart)
 ________________
 <a name="Introduction"></a>
 ## Introduction
@@ -54,6 +54,9 @@ _____________________________
 * `run.py` The run file which takes as input the files in the source directory and the `input.py`
 * `run_demo.py` A demo version of the code in wich the user can run it for test.
 * `data/` Data directory contains the signal and background files for the demo.
-*  
+* `source/transformer.py` Source code for the transformer network.
+* `source/train.py` Source code for the training and teseting loop for each model.
+* `source/Analysis.py` Example of Delphes analysis that the user can consider.
+* `source/prepare_files.py` Source code to prepae the input files to the network.
 
 
