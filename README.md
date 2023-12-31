@@ -1,10 +1,12 @@
 # Multi-Scale Cross-Attention Transformer Encoder for Event Calssification
 
- &emsp; Transformer encoder model that incorporate different scale information via multi-modal network with self and cross-attention layers. The packge based on [arXiv:XXXX [hep-ph]](https://arxiv.org/abs/XXX). The current version of the package is very geeneric and span  three configurations  as the following:
+ &emsp; A Transformer encoder model that incorporates different scale information via a multi-modal network with self and cross-attention layers. The package is based on arXiv:XXXX [hep-ph]. The current version of the package is very generic and spans three configurations as follows:
 
- * model_1: Transformer model with single input and self-attention heads.
- * model_2: Transformer model with three inputs, each input followed by transformer layers with self-attention heads and the output is fed to transformer layers with cross-attneion heads.
- * model_3: Transformer model with two inputs, each followed by transformer layers with self-attneion heads and the output is fed to transformer layers with cross-attention heads. 
+ *Model_1: Transformer model with a single input and self-attention heads.
+
+*Model_2: Transformer model with three inputs; each input is followed by transformer layers with self-attention heads, and the output is fed to transformer layers with cross-attention heads.
+
+*Model_3: Transformer model with two inputs; each input is followed by transformer layers with self-attention heads, and the output is fed to transformer layers with cross-attention heads.
  __________
 ## $~~~~~~~~~~~$  Table of content
 
@@ -36,11 +38,12 @@ Requirements can be easily installed by `pip3 install module` or the user can us
 _____________________________
 <a name="start"></a>
 ## Get start
-To run the package, the user has to fill the file `input.py` for the used model. For example, if the user want to use model_1 then the corresponding lines for model_1 only has to be filled while all other inputs are igonred by the code. To run the code, type in the terminal `python3 run.py`.  
+To run the package, the user has to fill the file `input.py` for the used model. For example, if the user wants to use model_1, then only the corresponding lines for model_1 have to be filled, while all other inputs are ignored by the code. To run the code, type in the terminal: `python3 run.py`.
 
-The network assumes the signal events in one file  and all the backgrounds in one file in the numpy format ".npz" which can be easily obtained by the command `numpy..savez_compressed()`
+The network assumes the signal events are in one file and all the backgrounds are in one file in the numpy format ".npz," which can be easily obtained by the command `numpy.savez_compressed()`.
 
-A demo version is also provided in which the user can run it to test the package. To run the demo version, type in the terminal `python3 run_demo.py`
+A demo version is also provided, in which the user can run it to test the package. To run the demo version, type in the terminal: `python3 run_demo.py`.
+
 
 _____________________________
 <a name="structure"></a>
