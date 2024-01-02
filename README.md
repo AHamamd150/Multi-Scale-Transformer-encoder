@@ -1,6 +1,6 @@
 # Multi-Scale Cross-Attention Transformer Encoder for Event Calssification
 
- &emsp; A Transformer encoder model that incorporates different scale information via a multi-modal network with self and cross-attention layers. The package is based on arXiv:2401.00452 [hep-ph] ([https://arxiv.org/abs/2207.09959](https://arxiv.org/pdf/2401.00452.pdf)). The current version of the package is very generic and spans three configurations as follows:
+ &emsp; A Transformer encoder model that incorporates different scale information via a multi-modal network with self and cross-attention layers. The package is based on ([arXiv:2401.00452 [hep-ph] ](https://arxiv.org/pdf/2401.00452.pdf)). The current version of the package is very generic and spans three configurations as follows:
 
 * Model_1: Transformer model with a single input and self-attention heads.
 * Model_2: Transformer model with three inputs; each input is followed by transformer layers with self-attention heads, and the output is fed to transformer layers with cross-attention heads.
