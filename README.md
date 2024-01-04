@@ -66,7 +66,8 @@ _____________________________
 
 ## Flow chart example of model_2, the user controls the structure of the model from the input file 
 
-![model_transformer_2](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/d8ac4043-e36e-4d5b-aaec-8a3c36041183)
+![model_transformer](https://github.com/AHamamd150/Multi-Scale-Transformer-encoder/assets/68282212/c335269a-5c3c-438f-8846-42b1def3aaed)
+
 
 ## Flow chart example of model_3, the user controls the structure of the model from the input file 
 
