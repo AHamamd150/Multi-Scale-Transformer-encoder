@@ -45,10 +45,8 @@ class transformer_encoder_layer_MHSA:
     def layer(self,x):     
         MHA = layers.MultiHeadAttention(num_heads=self.heads, key_dim=self.hidden_dim, dropout=self.dropout)    
         x1 = layers.LayerNormalization()(x)
-        if masked:
-            attention_output,weights = MHA(x1, x1, attention_mask = self.mask,return_attention_scores=True)
-        else:
-            attention_output,weights = MHA(x1, x1, attention_mask = None,return_attention_scores=True)
+        attention_output,weights = MHA(x1, x1, attention_mask = self.mask,return_attention_scores=True)
+
         x2 = layers.Add()([attention_output, x])
         x3 = layers.LayerNormalization()(x2)
         x3 = mlp(x3, hidden_units=self.mlp_units, dropout_rate=self.dropout)
