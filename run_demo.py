@@ -46,8 +46,8 @@ n_channels = 7
 #################################
 signal=np.load(sig_file,allow_pickle=True)['arr_0'][:k_event]
 background =np.load(bkg_file,allow_pickle=True)['arr_0'][:k_event]
-signal =  signal[:,:n_constit,:n_channels ] 
-background = background[:,:n_constit,:n_channels ]
+signal =  padding(signal,n_constit,'Padding Signal events:') 
+background = padding(background,n_constit,'Padding Background events:')
 print('###============================================###')
 print(f'''Shape of the signal= {signal.shape}
 Shape of the background= {background.shape}''')
