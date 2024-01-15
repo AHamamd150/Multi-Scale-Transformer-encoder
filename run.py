@@ -28,8 +28,8 @@ if model ==1:
   time.sleep(10)
   signal=np.load(sig_file,allow_pickle=True)['arr_0'][:k_event]
   background =np.load(bkg_file,allow_pickle=True)['arr_0'][:k_event]
-  signal =  signal[:,:n_constit,:n_channels ] 
-  background = background[:,:n_constit,:n_channels ]
+  signal =  padding(signal,n_constit,'Padding Signal events:') 
+  background = padding(background,n_constit,'Padding Background events:') 
   print('###============================================###')
   print(f'''Shape of the signal= {signal.shape}
 Shape of the background= {background.shape}''')
@@ -86,15 +86,15 @@ if model ==2:
   background_2 =np.load(bkg_file_2,allow_pickle=True)['arr_0'][:k_event]
   background_3 =np.load(bkg_file_3,allow_pickle=True)['arr_0'][:k_event]
   
-  signal_1 =  signal_1[:,:n_constit_1,:n_channels_1 ] 
-  background_1 = background_1[:,:n_constit_1,:n_channels_1 ]
+  signal_1 =  padding(signal_1,n_constit_1,'Padding Signal_1 event:') 
+  background_1 = padding(background_1,n_constit_1,'Padding Background_1 event:')
 
-  signal_2 =  signal_2[:,:n_constit_2,:n_channels_2 ] 
-  background_2 = background_2[:,:n_constit_2,:n_channels_2]
+  signal_2 =  padding(signal_2,n_constit_2,'Padding Signal_2 event:') 
+  background_2 = padding(background_2,n_constit_2,'Padding Background_2 event:')
   
-  signal_3 =  signal_3[:,:n_constit_3,:n_channels_3 ] 
-  background_3 = background_3[:,:n_constit_3,:n_channels_3 ]
-  
+  signal_3 =  padding(signal_3,n_constit_3,'Padding Signal_3 event:') 
+  background_3 = padding(background_3,n_constit_3,'Padding Background_3 event:')
+   
   print('###============================================###')
   print(f'''Shape of the signal_1= {signal_1.shape}
 Shape of the background_1= {background_1.shape}''')
@@ -179,11 +179,11 @@ if model ==3:
   background_2 =np.load(bkg_file_2,allow_pickle=True)['arr_0'][:k_event]
 
   
-  signal_1 =  signal_1[:,:n_constit_1,:n_channels_1 ] 
-  background_1 = background_1[:,:n_constit_1,:n_channels_1 ]
+  signal_1 =  padding(signal_1,n_constit_1,'Padding Signal_1 event:') 
+  background_1 = padding(background_1,n_constit_1,'Padding Background_1 event:')
 
-  signal_2 =  signal_2[:,:n_constit_2,:n_channels_2 ] 
-  background_2 = background_2[:,:n_constit_2,:n_channels_2]
+  signal_2 =  padding(signal_2,n_constit_2,'Padding Signal_2 event:') 
+  background_2 = padding(background_2,n_constit_2,'Padding Background_2 event:')
     
   print('###============================================###')
   print(f'''Shape of the signal_1= {signal_1.shape}
