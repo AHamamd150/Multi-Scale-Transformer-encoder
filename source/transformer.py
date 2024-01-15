@@ -36,7 +36,7 @@ def masked_fill(tensor, idx,value,n_constit):
 def padding(x,n,a):
     arr = np.empty(shape=[0,n,x.shape[-1]])
     for i in range(len(x)):
-        sys.stdout.write('\r'+'%s: %s/%s'%(str(a),str(i),str(len(x))))
+        sys.stdout.write('\r'+'%s %s/%s'%(str(a),str(i),str(len(x))))
         if x.shape[1] < n:
             arr= np.append(arr,np.expand_dims(np.concatenate((x[i,:,:],np.zeros((n-x.shape[1],x.shape[-1])))),0),axis=0)
         elif x.shape[1] > n:
