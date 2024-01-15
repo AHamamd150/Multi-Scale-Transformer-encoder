@@ -33,6 +33,18 @@ def masked_fill(tensor, idx,value,n_constit):
     return mask
 
 
+def padding(x,n,a):
+    arr = np.empty(shape=[0,n,x.shape[-1]])
+    for i in range(len(x)):
+        sys.stdout.write('\r'+'Padding %s: %s/%s'%(str(a),str(i),str(len(x))))
+        if x.shape[1] < n:
+            arr= np.append(arr,np.expand_dims(np.concatenate((x[i,:,:],np.zeros((n-x.shape[1],x.shape[-1])))),0),axis=0)
+        elif x.shape[1] > n:
+            arr= np.append(arr,np.expand_dims(x[i,:n,:],0),axis=0)
+        else:
+            arr= np.append(arr,np.expand_dims(x[i,:,:],0),axis=0)
+    return np.array(arr)
+
 class transformer_encoder_layer_MHSA:
     def __init__(self,heads, dropout,mask,mlp_units,hidden_dim):
         self.heads = heads
