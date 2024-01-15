@@ -12,7 +12,18 @@ def mask(x):
             if np.isneginf(x[i][j][3]):
                 x[i][j] = [0,0,0,0,0,0,0]
     return x 
-    
+
+
+def padding(x,n):
+    arr = np.empty(shape=[0,n,x.shape[-1]])
+    for i in range(len(x)):
+        if x.shape[1] < n:
+            arr= np.append(arr,np.expand_dims(np.concatenate((x[i,:,:],np.zeros((n-x.shape[1],x.shape[-1])))),0),axis=0)
+        elif x.shape[1] > n:
+            arr= np.append(arr,np.expand_dims(x[i,:n,:],0),axis=0)
+        else:
+            arr= np.append(arr,np.expand_dims(x[i,:,:],0),axis=0)
+    return np.array(arr)
     
 def prepare_files (dir_,n):
     files = glob.glob(dir_+'/*')
