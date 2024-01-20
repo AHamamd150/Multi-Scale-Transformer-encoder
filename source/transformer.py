@@ -27,7 +27,10 @@ def mlp(x, hidden_units, dropout_rate):
         x = layers.Dropout(dropout_rate)(x)
     return x
 def masked_fill(tensor, idx,value,n_constit):
-    pad_mask = tf.math.equal(tensor[:,:,idx],0)
+    pad_mask = tf.math.not_equal(tensor[:,:,idx],0)
+    ##mask value == 0 --> no attention
+    ## mask value ==1 --> Compute the attention
+    ## for reference: https://www.tensorflow.org/api_docs/python/tf/keras/layers/MultiHeadAttention
     mask = tf.where(pad_mask, tf.cast(tf.fill(tf.shape(tensor[...,-1]), value),tf.float32), tensor[:,:,idx])
     mask = tf.repeat(mask[:,tf.newaxis],n_constit,axis=1)
     return mask
@@ -93,7 +96,7 @@ class transformer_encoder_layer_MHCA:
 def create_Part_classifier():
     inputs = layers.Input(shape=input_shape_part) 
     if attention_mask:
-        attentionmask= masked_fill(inputs,2,-np.inf,inputs.shape[1])
+        attentionmask= masked_fill(inputs,2,1,inputs.shape[1])
     else:
         attentionmask= None
     transformer_encoder = transformer_encoder_layer_MHSA(num_heads,dropout_rate,attentionmask,mlp_head_units,inputs.shape[-1])
@@ -120,8 +123,8 @@ def create_Part_classifier_2():
     inputs_3 = layers.Input(shape=input_shape_part_2)     
     
     if masked:
-        attention_mask_1= masked_fill(inputs_1,2,-np.inf,inputs_1.shape[1])
-        attention_mask_2= masked_fill(inputs_2,2,-np.inf,inputs_2.shape[1])
+        attention_mask_1= masked_fill(inputs_1,2,1,inputs_1.shape[1])
+        attention_mask_2= masked_fill(inputs_2,2,1,inputs_2.shape[1])
     else:
         attention_mask_1= None
         attention_mask_2= None
@@ -164,8 +167,8 @@ def create_Part_classifier_3():
     inputs_3 = layers.Input(shape=input_shape_part_2)
     
     if attention_mask:
-        attention_mask_1= masked_fill(inputs_1,2,-np.inf,inputs_1.shape[1])
-        attention_mask_2= masked_fill(inputs_2,2,-np.inf,inputs_2.shape[1])
+        attention_mask_1= masked_fill(inputs_1,2,1,inputs_1.shape[1])
+        attention_mask_2= masked_fill(inputs_2,2,1,inputs_2.shape[1])
     else:
         attention_mask_1= None
         attention_mask_2= None
