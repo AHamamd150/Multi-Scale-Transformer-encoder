@@ -33,6 +33,7 @@ def masked_fill(tensor, idx,value,n_constit):
     ## for reference: https://www.tensorflow.org/api_docs/python/tf/keras/layers/MultiHeadAttention
     mask = tf.where(pad_mask, tf.cast(tf.fill(tf.shape(tensor[...,-1]), value),tf.float32), tensor[:,:,idx])
     mask = tf.repeat(mask[:,tf.newaxis],n_constit,axis=1)
+    mask=tf.einsum("...ij->...ji",mask) 
     return mask
 
 
